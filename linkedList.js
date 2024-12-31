@@ -1,12 +1,19 @@
 class LinkedList {
+    _head;
+
   constructor(head = null) {
-    this.head = head;
+    this._head = head;
   }
+
+  get head() {
+    return this._head;
+  }
+
   append(value) {
-    if (this.head == null) {
-      this.head = new Node(value);
+    if (this._head == null) {
+      this._head = new Node(value);
     } else {
-      let temp = this.head;
+      let temp = this._head;
       while (temp.nextNode !== null) {
         temp = temp.nextNode;
       }
@@ -15,8 +22,8 @@ class LinkedList {
   }
   prepend(value) {
     const newNode = new Node(value);
-    newNode.nextNode = this.head;
-    this.head = newNode;
+    newNode.nextNode = this._head;
+    this._head = newNode;
   }
 }
 
@@ -32,4 +39,4 @@ list.append("Jake");
 list.append("Horm");
 list.append("Fac");
 list.prepend("Man");
-console.log(list);
+console.log(list.head);
