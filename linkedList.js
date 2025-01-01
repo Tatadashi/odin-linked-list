@@ -54,9 +54,24 @@ class LinkedList {
       tempIndex++;
     }
     if (temp === null) {
-      return 'Value not in Linked List';
+      console.error('Value not in Linked List');
+      return;
     } 
-    return temp.value;
+    return temp;
+  }
+  pop() {
+    if (this._head === null) {
+      console.error("Linked List is Empty");
+    } else if (this._head.nextNode === null) {
+      this._head = null;
+    } else {
+      let temp = this._head;
+      //Set temp to be 2nd last node in list
+      while (temp.nextNode.nextNode !== null) {
+        temp = temp.nextNode;
+      }
+      temp.nextNode = null;
+    }
   }
 }
 
@@ -72,4 +87,5 @@ list.append("Jake");
 list.append("Horm");
 list.append("Fac");
 list.prepend("Man");
-console.log(list.at(6));
+list.pop();
+console.log(list);
