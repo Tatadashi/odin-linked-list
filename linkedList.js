@@ -112,6 +112,25 @@ class LinkedList {
       return finalString;
     }
   }
+  insertAt(value, index) {
+    if (this.size <= index - 1) {
+      console.error('Index Input greater than Indices in Linked List');
+    } else {
+      let temp = this._head;
+      let tempIndex = 0;
+      while (tempIndex != index) {
+        temp = temp.nextNode;
+        tempIndex++;
+      }
+      temp = new Node(value, temp);
+      if (tempIndex == 0) {
+        this._head = temp;
+      } else {
+        const previousTemp = this.at(tempIndex - 1);
+        previousTemp.nextNode = temp;
+      }
+    }
+  }
 }
 
 class Node {
@@ -125,5 +144,5 @@ const list = new LinkedList();
 list.append("Jake");
 list.append("Horm");
 list.append("Fac");
-list.prepend("Man");
+list.insertAt("May", 2);
 console.log(list.toString());
