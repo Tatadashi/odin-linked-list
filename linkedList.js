@@ -113,8 +113,8 @@ class LinkedList {
     }
   }
   insertAt(value, index) {
-    if (this.size <= index - 1) {
-      console.error('Index Input greater than Indices in Linked List');
+    if (index - 1 >= this.size) {
+      console.error("Index Input greater than Indices in Linked List");
     } else {
       let temp = this._head;
       let tempIndex = 0;
@@ -131,6 +131,24 @@ class LinkedList {
       }
     }
   }
+  removeAt(index) {
+    if (index >= this.size) {
+      console.error("Index Input greater than Indices in Linked List");
+    } else {
+      let temp = this._head;
+      let tempIndex = 0;
+      while (tempIndex != index) {
+        temp = temp.nextNode;
+        tempIndex++;
+      }
+      if (tempIndex == 0) {
+        this._head = temp.nextNode;
+      } else {
+        const previousTemp = this.at(tempIndex - 1);
+        previousTemp.nextNode = temp.nextNode;
+      }
+    }
+  }
 }
 
 class Node {
@@ -144,5 +162,5 @@ const list = new LinkedList();
 list.append("Jake");
 list.append("Horm");
 list.append("Fac");
-list.insertAt("May", 2);
+list.removeAt(2);
 console.log(list.toString());
