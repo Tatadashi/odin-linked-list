@@ -1,5 +1,5 @@
 class LinkedList {
-    _head;
+  _head;
 
   constructor(head = null) {
     this._head = head;
@@ -8,15 +8,15 @@ class LinkedList {
   get size() {
     let size = 0;
     if (this._head === null) {
-        return size;
+      return size;
     } else {
-        size = 1;
-        let temp = this._head;
-        while (temp.nextNode !== null) {
-          temp = temp.nextNode;
-          size++;
-        }
-        return size;
+      size = 1;
+      let temp = this._head;
+      while (temp.nextNode !== null) {
+        temp = temp.nextNode;
+        size++;
+      }
+      return size;
     }
   }
   get head() {
@@ -54,9 +54,9 @@ class LinkedList {
       tempIndex++;
     }
     if (temp === null) {
-      console.error('Value not in Linked List');
+      console.error("Value not in Linked List");
       return;
-    } 
+    }
     return temp;
   }
   pop() {
@@ -75,9 +75,9 @@ class LinkedList {
   }
   contains(value) {
     let temp = this._head;
-    while(temp !== null) {
+    while (temp !== null) {
       if (temp.value == value) {
-      return true;
+        return true;
       }
       temp = temp.nextNode;
     }
@@ -158,9 +158,4 @@ class Node {
   }
 }
 
-const list = new LinkedList();
-list.append("Jake");
-list.append("Horm");
-list.append("Fac");
-list.removeAt(2);
-console.log(list.toString());
+export { LinkedList };
