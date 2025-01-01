@@ -73,6 +73,16 @@ class LinkedList {
       temp.nextNode = null;
     }
   }
+  contains(value) {
+    let temp = this._head;
+    while(temp !== null) {
+      if (temp.value == value) {
+      return true;
+      }
+      temp = temp.nextNode;
+    }
+    return false;
+  }
 }
 
 class Node {
@@ -87,5 +97,4 @@ list.append("Jake");
 list.append("Horm");
 list.append("Fac");
 list.prepend("Man");
-list.pop();
-console.log(list);
+console.log(list.contains("Fac"));
