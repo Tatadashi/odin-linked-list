@@ -95,6 +95,23 @@ class LinkedList {
     }
     return null;
   }
+  toString() {
+    let temp = this._head;
+    let finalString;
+    if (this._head === null) {
+      finalString = null;
+      return finalString;
+    } else {
+      finalString = `( ${temp.value} )`;
+      temp = temp.nextNode;
+      while (temp !== null) {
+        finalString += ` -> ( ${temp.value} )`;
+        temp = temp.nextNode;
+      }
+      finalString += ` -> null`;
+      return finalString;
+    }
+  }
 }
 
 class Node {
@@ -109,4 +126,4 @@ list.append("Jake");
 list.append("Horm");
 list.append("Fac");
 list.prepend("Man");
-console.log(list.find("d"));
+console.log(list.toString());
